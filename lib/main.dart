@@ -1,4 +1,9 @@
+import 'package:desafio_sprint_4/home_screen.dart';
+import 'package:desafio_sprint_4/providers/home_screen_provider.dart';
+import 'package:desafio_sprint_4/providers/search_screen_provider.dart';
+import 'package:desafio_sprint_4/todos.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,11 +12,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Container(),
+    return ChangeNotifierProvider(
+      create: (context) {
+        TodosProvider();
+      },
+      child: MaterialApp(
+        theme: ThemeData(primarySwatch: Colors.orange),
+        home: HomeScreenProvider(),
+      ),
     );
   }
 }

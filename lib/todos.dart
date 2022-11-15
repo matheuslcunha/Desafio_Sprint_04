@@ -1,33 +1,43 @@
 import 'package:flutter/cupertino.dart';
-import 'package:desafio_sprint_4/model/todo.dart';
+import 'package:desafio_sprint_4/models/todo.dart';
 
 class TodosProvider extends ChangeNotifier {
   List<Todo> _todos = [
-    /* Todo(
-      title: 'asdawaa',
+    Todo(
+      title: 'matheus',
       description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '20/12/2022',
+      date: '2022-11-20',
     ),
     Todo(
-      title: 'asdawaa',
+      title: 'andrey',
       description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '20/12/2022',
+      date: '2022-11-16',
     ),
     Todo(
-      title: 'asdawaa',
+      title: 'ruan',
       description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '20/12/2022',
+      date: '2022-11-18',
     ),
     Todo(
-      title: 'asdawaa',
+      title: 'lucas',
       description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '20/12/2022',
-    ) */
+      date: '2022-11-20',
+    )
   ];
 
   List<Todo> get todos {
     return _todos.toList();
-    /* _todos.where((todo) => false) */
+  }
+
+  List<Todo> searchByTitle(String query) {
+    final suggestions = _todos.where((todo) {
+      final todoTitle = todo.title.toLowerCase();
+      final input = query.toLowerCase();
+
+      return todoTitle.contains(input);
+    }).toList();
+
+    return suggestions;
   }
 
   void addTodo(Todo todo) {

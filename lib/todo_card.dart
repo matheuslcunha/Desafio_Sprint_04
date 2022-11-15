@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:desafio_sprint_4/model/todo.dart';
+import 'package:desafio_sprint_4/models/todo.dart';
+import 'package:desafio_sprint_4/controllers/expiration_controller.dart';
 
 class TodoCard extends StatelessWidget {
   final Todo todo;
@@ -10,6 +11,9 @@ class TodoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ExpirationController expirationController = ExpirationController();
+    //DateTime dateTest = DateTime.parse("2022-11-30");
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -20,9 +24,9 @@ class TodoCard extends StatelessWidget {
         children: [
           Container(
               height: 30,
-              //função pra mudar de cor,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: expirationController.expirationFeedback(
+                    DateTime.parse(todo.date)), //nao necessita parse depois
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
@@ -37,7 +41,7 @@ class TodoCard extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        'Expira em: ${todo.date}',
+                        'Tarefa expira em: ${expirationController.formatDate(DateTime.parse(todo.date))}',
                         textAlign: TextAlign.start,
                       ),
                     ],

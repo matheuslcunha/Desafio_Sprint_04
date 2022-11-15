@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:desafio_sprint_4/todo_card.dart';
 import 'package:provider/provider.dart';
 
-class TodoList extends StatelessWidget {
+class TodoList extends StatefulWidget {
   const TodoList({super.key});
 
+  @override
+  State<TodoList> createState() => _TodoListState();
+}
+
+class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);

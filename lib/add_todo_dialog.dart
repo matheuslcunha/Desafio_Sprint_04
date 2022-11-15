@@ -1,7 +1,7 @@
 import 'package:desafio_sprint_4/todos.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_sprint_4/todo_form.dart';
-import 'package:desafio_sprint_4/model/todo.dart';
+import 'package:desafio_sprint_4/models/todo.dart';
 import 'package:provider/provider.dart';
 
 class AddTodoDialog extends StatefulWidget {
@@ -70,6 +70,10 @@ class _AddTodoDialogState extends State<AddTodoDialog> {
 
       final provider = Provider.of<TodosProvider>(context, listen: false);
       provider.addTodo(todo);
+
+      print(provider.todos[4].title);
+      print(provider.todos[4].date);
+      print(provider.todos[4].description);
 
       Navigator.of(context).pop();
 
