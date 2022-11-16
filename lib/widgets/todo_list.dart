@@ -1,6 +1,6 @@
-import 'package:desafio_sprint_4/todos.dart';
+import 'package:desafio_sprint_4/providers/todos.dart';
 import 'package:flutter/material.dart';
-import 'package:desafio_sprint_4/todo_card.dart';
+import 'package:desafio_sprint_4/widgets/todo_card.dart';
 import 'package:provider/provider.dart';
 
 class TodoList extends StatefulWidget {

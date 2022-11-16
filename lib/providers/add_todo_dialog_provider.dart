@@ -1,5 +1,5 @@
-import 'package:desafio_sprint_4/add_todo_dialog.dart';
-import 'package:desafio_sprint_4/todos.dart';
+import 'package:desafio_sprint_4/views/add_todo_dialog.dart';
+import 'package:desafio_sprint_4/providers/todos.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

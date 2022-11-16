@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:desafio_sprint_4/models/todo.dart';
-import 'package:desafio_sprint_4/todo_form.dart';
+import 'package:desafio_sprint_4/widgets/todo_form.dart';
 import 'package:provider/provider.dart';
-import 'package:desafio_sprint_4/todos.dart';
+import 'package:desafio_sprint_4/providers/todos.dart';
 
 class EditTodoScreen extends StatefulWidget {
   final Todo todo;

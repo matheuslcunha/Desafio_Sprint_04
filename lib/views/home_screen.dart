@@ -1,6 +1,6 @@
 import 'package:desafio_sprint_4/providers/add_todo_dialog_provider.dart';
 import 'package:desafio_sprint_4/providers/search_screen_provider.dart';
-import 'package:desafio_sprint_4/todo_list.dart';
+import 'package:desafio_sprint_4/widgets/todo_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
-import 'package:desafio_sprint_4/providers/edit_todo_provider.dart';
+import 'package:desafio_sprint_4/providers/edit_todo_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:desafio_sprint_4/todos.dart';
+import 'package:desafio_sprint_4/providers/todos.dart';
 import 'package:desafio_sprint_4/models/todo.dart';
 
 class TodoOperationController {
