@@ -1,3 +1,4 @@
+import 'package:desafio_sprint_4/controllers/title_condition_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -27,11 +28,14 @@ class TodoForm extends StatefulWidget {
 }
 
 class _TodoFormState extends State<TodoForm> {
+  TitleConditionController titleConditionController =
+      TitleConditionController();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         buildTitle(),
         SizedBox(height: 5),
@@ -51,6 +55,9 @@ class _TodoFormState extends State<TodoForm> {
       validator: (title) {
         if (title!.isEmpty) {
           return 'Este campo não pode ser vazio!';
+        }
+        if (titleConditionController.isEqual(title) == true) {
+          return 'Este título já existe!';
         }
         return null;
       },
@@ -75,7 +82,6 @@ class _TodoFormState extends State<TodoForm> {
 
   Widget buildDate() {
     return TextFormField(
-      //readOnly: true,
       initialValue: widget.date,
       onChanged: widget.onChangedDate,
       decoration: InputDecoration(
@@ -83,7 +89,11 @@ class _TodoFormState extends State<TodoForm> {
         labelText: 'Data de expiração',
         icon: Icon(Icons.calendar_today),
       ),
-      /* onTap: () async {
+
+      // Trocar para o DatePicker
+
+      /*readOnly: true,
+       onTap: () async {
         DateTime? pickedDate = await showDatePicker(
             context: context,
             initialDate: DateTime.now(),
@@ -103,7 +113,7 @@ class _TodoFormState extends State<TodoForm> {
     return Container(
       width: double.infinity,
       child: ElevatedButton(
-        style: ButtonStyle(),
+        style: ElevatedButton.styleFrom(),
         onPressed: widget.onSavedTodo,
         child: Text('Salvar'),
       ),

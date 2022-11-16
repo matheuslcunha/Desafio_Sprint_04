@@ -1,10 +1,7 @@
 import 'package:desafio_sprint_4/providers/add_todo_dialog_provider.dart';
 import 'package:desafio_sprint_4/providers/search_screen_provider.dart';
 import 'package:desafio_sprint_4/todo_list.dart';
-import 'package:desafio_sprint_4/todos.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:desafio_sprint_4/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.replay_outlined),
+            icon: const Icon(Icons.wb_sunny_outlined),
             onPressed: () {
               setState(() {});
             },
@@ -37,11 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Container(
-        color: Color.fromARGB(255, 230, 230, 230),
+        color: Theme.of(context).backgroundColor,
         child: TodoList(),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.orange,
         onPressed: () {
           showDialog(
             context: context,

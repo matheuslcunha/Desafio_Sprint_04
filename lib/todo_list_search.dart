@@ -17,17 +17,9 @@ class _TodoListSearchState extends State<TodoListSearch> {
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);
     final todos = provider.todos;
-    //String s = '';
     final search = provider.searchByTitle(widget.controller);
 
-    return Container(
-      height: 150,
-      width: 150,
-      color: Colors.blue,
-      child: Text('aaa'),
-    );
-
-    /* return search.isEmpty
+    return search.isEmpty
         ? Center(
             child: Text(
               'Sua lista de tarefas está vazia!',
@@ -46,7 +38,6 @@ class _TodoListSearchState extends State<TodoListSearch> {
                 itemBuilder: ((context, index) {
                   final todo = todos[index];
                   final a = search[index];
-                  print('aaaaaaaaaaa');
                   return TodoCard(todo: a);
                 }),
                 itemCount: search.length,
@@ -55,6 +46,6 @@ class _TodoListSearchState extends State<TodoListSearch> {
                 },
               ),
             ],
-          ); */
+          );
   }
 }

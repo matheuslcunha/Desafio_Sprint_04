@@ -4,29 +4,36 @@ import 'package:desafio_sprint_4/models/todo.dart';
 class TodosProvider extends ChangeNotifier {
   List<Todo> _todos = [
     Todo(
-      title: 'matheus',
-      description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '2022-11-20',
+      title: 'Dar uma caminhada',
+      description:
+          'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      date: '2022-11-21',
     ),
     Todo(
-      title: 'andrey',
+      title: 'Arrumar o rádio',
       description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '2022-11-16',
+      date: '2022-11-17',
     ),
     Todo(
-      title: 'ruan',
-      description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '2022-11-18',
+      title: 'Completar o Desafio',
+      description: 'Sonhar* em completar o desafio, melhor dizendo',
+      date: '2022-11-19',
     ),
     Todo(
-      title: 'lucas',
-      description: 'aaaaaaaaaaaaaaaaaaaa',
-      date: '2022-11-20',
+      title: 'Comprar um vinil',
+      description: 'The Smiths? Belchior? Manoel Gomes?',
+      date: '2022-11-21',
     )
   ];
 
   List<Todo> get todos {
     return _todos.toList();
+  }
+
+  getTodo(String title) {
+    return todos.where((element) {
+      return title == element.title;
+    }).toList();
   }
 
   List<Todo> searchByTitle(String query) {
@@ -44,5 +51,17 @@ class TodosProvider extends ChangeNotifier {
     _todos.add(todo);
 
     notifyListeners();
+  }
+
+  void removeTodo(Todo todo) {
+    _todos.remove(todo);
+
+    notifyListeners();
+  }
+
+  void updateTodo(Todo todo, String title, String description, String date) {
+    todo.title = title;
+    todo.description = description;
+    todo.date = date;
   }
 }

@@ -19,38 +19,38 @@ class _AddTodoDialogState extends State<AddTodoDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Adicionar Tarefa',
-              style: TextStyle(),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            TodoForm(onChangedTitle: (title) {
-              setState(() {
-                this.title = title;
-                print(this.title);
-                print(title);
-              });
-            }, onChangedDescription: (description) {
-              setState(() {
-                this.description = description;
-              });
-            }, onChangedDate: (date) {
-              setState(() {
-                this.date = date;
-              });
-            }, onSavedTodo: () {
-              addTodo();
-            }),
-          ],
+    return SingleChildScrollView(
+      child: AlertDialog(
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Adicionar Tarefa',
+                style: TextStyle(),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              TodoForm(onChangedTitle: (title) {
+                setState(() {
+                  this.title = title;
+                });
+              }, onChangedDescription: (description) {
+                setState(() {
+                  this.description = description;
+                });
+              }, onChangedDate: (date) {
+                setState(() {
+                  this.date = date;
+                });
+              }, onSavedTodo: () {
+                addTodo();
+              }),
+            ],
+          ),
         ),
       ),
     );
@@ -71,15 +71,7 @@ class _AddTodoDialogState extends State<AddTodoDialog> {
       final provider = Provider.of<TodosProvider>(context, listen: false);
       provider.addTodo(todo);
 
-      print(provider.todos[4].title);
-      print(provider.todos[4].date);
-      print(provider.todos[4].description);
-
-      Navigator.of(context).pop();
-
-      print(title);
-      print(description);
-      print(date);
+      Navigator.pop(context);
     }
   }
 }
