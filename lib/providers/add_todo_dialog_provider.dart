@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 class AddTodoDialogProvider extends StatelessWidget {
   const AddTodoDialogProvider({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
